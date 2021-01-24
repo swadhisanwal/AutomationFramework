@@ -11,12 +11,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import com.economist.qa.util.TestUtil;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
 	
-	static WebDriver driver;
-	static Properties prop;
+public static WebDriver driver;
+public static Properties prop;
 	
 	public TestBase() {
 		try {
@@ -56,8 +58,8 @@ public class TestBase {
 	
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(TestUtil.Implicit_wait, TimeUnit.SECONDS);
+	driver.manage().timeouts().pageLoadTimeout(TestUtil.Page_load_timout,TimeUnit.SECONDS);
 	
 	driver.get(prop.getProperty("url"));
 	}

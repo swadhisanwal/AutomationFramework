@@ -33,13 +33,14 @@
     <version>4.2.2</version>
 </dependency>
     
- <!-- Testng Dependency -->
-    <dependency>
-  <groupId>org.testng</groupId>
-  <artifactId>testng</artifactId>
-  <version>6.8</version>
-  <scope>compile</scope>
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.1.0</version>
+    <scope>test</scope>
 </dependency>
+
 
 <!--  Apache POI Dependency -->
 <dependency>

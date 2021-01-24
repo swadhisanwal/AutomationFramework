@@ -1,5 +1,7 @@
 package com.economist.qa.pages;
 
-public class BankingFinancejobs {
+import com.economist.qa.base.TestBase;
+
+public class BankingFinancejobs extends TestBase {
 
 }

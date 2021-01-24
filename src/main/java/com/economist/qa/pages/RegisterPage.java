@@ -1,5 +1,8 @@
 package com.economist.qa.pages;
 
-public class RegisterPage {
+import com.economist.qa.base.TestBase;
 
+public class RegisterPage extends TestBase {
+
+	
 }
