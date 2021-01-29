@@ -1,5 +1,6 @@
 package com.economist.qa.testcases;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,6 +12,7 @@ import com.economist.qa.pages.RegisterPage;
 public class RegisterPageTest extends TestBase {
 	
 	RegisterPage registerPage;
+	Logger log = Logger.getLogger(RegisterPageTest.class);
 
 	public RegisterPageTest() {
 		super();

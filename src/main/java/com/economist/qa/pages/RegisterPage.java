@@ -18,11 +18,13 @@ public class RegisterPage extends TestBase {
 		
 		//Actions
 				
+				//For Create account page Title 
 				public String verifyRegisteTitle() {
 					Register.click();
 					return driver.getTitle();
 				}
 				
+				//For Create account page URL
 				public String verifyRegisterURL() {
 					Register.click();
 					return driver.getCurrentUrl();

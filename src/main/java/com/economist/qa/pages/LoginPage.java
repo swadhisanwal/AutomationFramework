@@ -17,11 +17,13 @@ public class LoginPage extends TestBase {
 	
 	//Actions
 			
+			//For Login page Title 
 			public String verifyLoginTitle() {
 				Login.click();
 				return driver.getTitle();
 			}
 			
+			//For Login page URL 
 			public String verifyLoginURL() {
 				Login.click();
 				return driver.getCurrentUrl();
