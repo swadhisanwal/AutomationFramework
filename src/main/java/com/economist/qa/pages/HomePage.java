@@ -48,45 +48,71 @@ public class HomePage extends TestBase {
 		}
 	//Actions:
 		
-		//For visibility of Navigation Bar
+		/***
+		 * Description- For visibility of Navigation Bar
+		 * @return
+		 */
 		public boolean validateNavigationBar() {
 			return NavigationBar.isDisplayed();
 		}
 		
-		//For visibility of Search Button
+		
+		/***
+		 * Description: For visibility of Search Button
+		 * @return
+		 */
 		public boolean validateSearchButton() {
 			return SearchButton.isDisplayed();
 			}
 		
-		//For visibility of component for search keyword
+		/***
+		 * Description: For visibility of component for search keyword
+		 * @return
+		 */
 		public boolean validateSearchKeyword() {
 			return SearchKeyword.isDisplayed();
 			}
 		
-		//For visibility of component for location search
+		/***
+		 * Description: For visibility of component for location search
+		 * @return
+		 */
 		public boolean validateSearchLocation() {
 			return SearchLocation.isDisplayed();
 			}
 		
-		//For visibility of component for radial location search
+	
+		/***
+		 * Description: For visibility of component for radial location search
+		 * @return
+		 */
 		public boolean validateSearchRadialLocation() {
 			return SearchRadialLocation.isDisplayed();
 			}
 		
-		//For navigating to Login page
+		/***
+		 * Description: For navigating to Login page
+		 * @return
+		 */
 		public LoginPage loginPageVerify() {
 			Login.click();
 			return new LoginPage();
 		}
-		
-		////For navigating to Create account page
+	
+		/***
+		 * Description: For navigating to Create account page
+		 * @return
+		 */
 		public RegisterPage registerPageVerify() {
 			Register.click();
 			return new RegisterPage();
 		}
 		
 		
-		//to identify number of links within a WebElement 
+		/***
+		 * Description:To identify number of links within a WebElement 
+		 * @return
+		 */
 		public boolean navigationTabLink() {
 			 //Storing the links in a list and traversing through the links
 	        List<WebElement> links = NavigationBar.findElements(By.tagName("a"));
@@ -105,7 +131,12 @@ public class HomePage extends TestBase {
 	        return flag;
 		}
 		
-		// to click a link in the specific panel 
+		
+		/***
+		 * Description: to click a link in the specific panel
+		 * @param linkUrl
+		 * @return
+		 */
 		public boolean verifyLinks(String linkUrl) {
 			List<WebElement> links = NavigationBar.findElements(By.tagName("a"));
 			System.out.println("No of links are "+links.size());
@@ -158,5 +189,5 @@ public class HomePage extends TestBase {
 				
 				
 		}
-}
+
 

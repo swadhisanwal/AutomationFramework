@@ -36,13 +36,10 @@ public class Browsejobs extends TestBase {
 		        }
 			
 			//to find the view details option
-			public void selectViewDetails() {
+			public void selectViewDetails() 
+			{
 				
-				List <WebElement> link2 = JobList.findElements(By.xpath("//a[@class=\"button button--lister-view-details\"]");
-				 System.out.println("No of links are "+ link2.size()); 
-				 for(int i=0;i<link2.size();i++){
-					    System.out.println(link2.get(i));
-					} 
-			}
+				
+				
 
 }

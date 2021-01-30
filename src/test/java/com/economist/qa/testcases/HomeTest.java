@@ -2,6 +2,7 @@ package com.economist.qa.testcases;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,10 +13,12 @@ import org.testng.annotations.Test;
 import com.economist.qa.base.TestBase;
 import com.economist.qa.pages.HomePage;
 import com.economist.qa.pages.LoginPage;
+import com.reddit.test.testCases.HomePageTestCase;
 
 public class HomeTest extends TestBase {
 	HomePage homePage;
 	LoginPage loginPage;
+	Logger log = Logger.getLogger(HomeTest.class);
 	
 	
 	public HomeTest() {
@@ -70,7 +73,7 @@ public class HomeTest extends TestBase {
 	@Test(priority=7)
 	public void verifyLinkTest() {
 		
-		homePage.navigationTabLink();
+		Assert.assertTrue(homePage.navigationTabLink());
 	
 	}
 	
