@@ -1,25 +1,23 @@
 package com.economist.qa.testcases;
 
-import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.economist.qa.base.TestBase;
 import com.economist.qa.pages.HomePage;
 import com.economist.qa.pages.LoginPage;
-import com.reddit.test.testCases.HomePageTestCase;
+import com.economist.qa.util.TestUtil;
+
 
 public class HomeTest extends TestBase {
 	HomePage homePage;
 	LoginPage loginPage;
 	Logger log = Logger.getLogger(HomeTest.class);
-	
+	String sheetName = "HomePage";
 	
 	public HomeTest() {
 		super();
@@ -33,6 +31,7 @@ public class HomeTest extends TestBase {
 		
 	}
 	
+	/*
 	@Test(priority=1)
 	public void validateSearchButtonTest() {
 		boolean flag = homePage.validateSearchButton();
@@ -76,7 +75,21 @@ public class HomeTest extends TestBase {
 		Assert.assertTrue(homePage.navigationTabLink());
 	
 	}
+	*/
 	
+	@DataProvider
+	public Object[][] getEconomistTestData(){
+		Object data[][] = TestUtil.getTestData(sheetName);
+		return data;
+	}
+	
+	@Test(priority=1, dataProvider ="getEconomistTestData")
+	public void validateFindJobs(String SectorName ) {
+		homePage.findJobs(SectorName);
+	}
+	
+	
+
 
 	@AfterMethod
 	public void tearDown() {

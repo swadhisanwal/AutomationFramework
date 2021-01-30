@@ -8,26 +8,31 @@ import com.economist.qa.base.TestBase;
 
 public class LoginPage extends TestBase {
 	@FindBy(linkText ="Sign in")
-	WebElement Login;
-	
+	WebElement login;
+
 	//Initializing Page Object:
-			public LoginPage(){
-				PageFactory.initElements(driver, this);	
-			}
-	
+	public LoginPage(){
+		PageFactory.initElements(driver, this);	
+	}
+
 	//Actions
-			
-			//For Login page Title 
-			public String verifyLoginTitle() {
-				Login.click();
-				return driver.getTitle();
-			}
-			
-			//For Login page URL 
-			public String verifyLoginURL() {
-				Login.click();
-				return driver.getCurrentUrl();
-			}
+	/***
+	 * Description: For Login page Title 
+	 * @return
+	 */
+	public String verifyLoginTitle() {
+		login.click();
+		return driver.getTitle();
+	}
 	
-	
+	/***
+	 * Description: For Login page URL 
+	 * @return
+	 */
+	public String verifyLoginURL() {
+		login.click();
+		return driver.getCurrentUrl();
+	}
+
+
 }
