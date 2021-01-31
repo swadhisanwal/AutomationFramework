@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.economist.qa.base.TestBase;
 
+import jdk.internal.org.jline.utils.Log;
+
 public class LoginPage extends TestBase {
 	@FindBy(linkText ="Sign in")
 	WebElement login;

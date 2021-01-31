@@ -25,13 +25,25 @@ public class LoginPageTest extends TestBase{
 	}
 	@Test(priority=1)
 	public void verifyLoginTitleTest() {
+		try {
 		String title= loginPage.verifyLoginTitle();
 		Assert.assertEquals("Logon | Jobs.Economist.com", title);
+		log.info("Verified login page title");
+		}
+		catch (Exception e) {
+			log.error("Exception Occured in verifyLoginTitleTest "+e.getMessage());
+			}
 	}
 	@Test(priority=2)
 	public void verifyLoginURLTest() {
+		try {
 		String url= loginPage.verifyLoginURL();
-		Assert.assertEquals("https://jobs.economist.com/logon/", url);
+		Assert.assertEquals(url, "https://jobs.economist.com/logon/");
+		}
+		catch (Exception e) {
+			log.error("Exception Occured in verifyLoginURLTest "+e.getMessage());
+			}
+		
 	}
 	
 	@AfterMethod

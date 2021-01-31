@@ -10,8 +10,10 @@
 <test name="Economist WebApp Test Cases">
      <classes>
        <class name="com.economist.qa.testcases.HomeTest"/>
+       <class name="com.economist.qa.testcases.BrowseJobTest"/>
        <class name="com.economist.qa.testcases.LoginPageTest"/>
        <class name="com.economist.qa.testcases.RegisterPageTest"/>
+       <class name="com.economist.qa.testcases.SelectJobTest"/>
      </classes>
    </test>
 </suite>

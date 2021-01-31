@@ -21,7 +21,7 @@ public class HomePage extends TestBase {
 	@FindBy(linkText = "Create account")
 	WebElement register;
 
-	@FindBy (xpath= "//div[contains(@class,'browse__items')")
+	@FindBy (xpath= "//ul[contains(@class,'palm-column-two js-palm-hide js-tinynav l_tinynav1')]")
 	WebElement jobsSector;
 
 	@FindBy(linkText = "Banking and finance")
@@ -48,6 +48,7 @@ public class HomePage extends TestBase {
 	public HomePage(){
 		PageFactory.initElements(driver, this);	
 	}
+	
 	//Actions:
 
 	/***
@@ -126,8 +127,8 @@ public class HomePage extends TestBase {
 		//checking the links fetched.
 		for(int i=0;i<links.size();i++)
 		{
-			WebElement E1= links.get(i);
-			String url= E1.getAttribute("href");
+			WebElement e1 = links.get(i);
+			String url= e1.getAttribute("href");
 			flag = verifyLinks(url);
 		}
 		return flag;
@@ -166,27 +167,39 @@ public class HomePage extends TestBase {
 		return flag;
 
 	}
+		/***
+		 * Description: to Search Job using search keyword from Home screen
+		 * @param jobs
+		 * @return
+		 */
+	public BrowseJobs searchJobs(String jobs) {
+		searchKeyword.sendKeys(jobs);
+		searchButton.click();
+		return new BrowseJobs();
+	}
 
 
 	/**
-	 * Description: To select Navigation and Banking Finance sector
+	 * Description: To select any sector from Browse By Sector section 
 	 * @param sectorName
 	 * @return
 	 */
-	public Browsejobs findJobs(String sectorName) {
+	public BrowseJobs findJobsBySector(String sectorName) {
 		//Storing the links in a list and traversing through the links
 		List<WebElement> links = jobsSector.findElements(By.tagName("a"));
+		// This line will print the number of links and the count of links.
+				log.info("No of links are "+ links.size());  
 		for(WebElement ele:links)
 		{
-			if(ele.getText().equalsIgnoreCase(sectorName))
+			if(ele.getText().contains(sectorName))
 			{
 				ele.click();
 			}
 		}
-		return new Browsejobs();
+		return new BrowseJobs();
 	}
-
-
 }
+
+
 
 

@@ -26,13 +26,25 @@ public class RegisterPageTest extends TestBase {
 	}
 	@Test(priority=1)
 	public void verifyRegisterTitleTest() {
+		try {
 		String title= registerPage.verifyRegisteTitle();
 		Assert.assertEquals("Register | Jobs.Economist.com", title);
+		log.info("Register page title is " +title);
+		}
+		catch (Exception e) {
+			log.error("Exception Occured in verifyRegisterTitleTest "+e.getMessage());
+			}
 	}
 	@Test(priority=2)
 	public void verifyRegisterURLTest() {
+		try {
 		String url= registerPage.verifyRegisterURL();
 		Assert.assertEquals("https://jobs.economist.com/register/", url);
+		log.info("Register page url is " +url);
+		}
+		catch (Exception e) {
+			log.error("Exception Occured in verifyRegisterURLTest "+e.getMessage());
+			}
 	}
 	
 	@AfterMethod

@@ -12,8 +12,8 @@ import com.economist.qa.base.TestBase;
 
 public class TestUtil extends TestBase{
 
-	public static long Page_load_timout= 20;
-	public static long Implicit_wait = 10;
+	public static long Page_load_timout= 30;
+	public static long Implicit_wait = 20;
 
 	public static String TESTDATA_SHEET_PATH = "C:\\TheEconomistTest\\src\\main\\java\\com\\economist\\qa\\testdata\\TheEconomistTestData.xlsx";
 	static Workbook book;
