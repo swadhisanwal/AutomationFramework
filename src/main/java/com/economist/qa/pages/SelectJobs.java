@@ -12,11 +12,11 @@ public class SelectJobs extends TestBase {
 	// PageFactory/Object repository:
 
 	// Apply Button WebElement
-	@FindBy(xpath ="ul[contains(@class,'palm-column-two js-palm-hide js-tinynav l_tinynav1')]")
+	@FindBy(partialLinkText ="Apply")
 	WebElement applyButton;
 
 	//Job Description WebElement
-	@FindBy(xpath = "//ul[contains(@class,'palm-column-two js-palm-hide js-tinynav l_tinynav1')]")
+	@FindBy(xpath = "//div[contains(@class,'grid-item seven-twelfths palm-one-whole')]")
 	WebElement jobDescription;
 
 	Logger log = Logger.getLogger(SelectJobs.class);

@@ -5,13 +5,13 @@ import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-//import org.testng.annotations.DataProvider;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.economist.qa.base.TestBase;
 import com.economist.qa.pages.BrowseJobs;
 import com.economist.qa.pages.HomePage;
 import com.economist.qa.pages.LoginPage;
-//import com.economist.qa.util.TestUtil;
+import com.economist.qa.util.TestUtil;
 
 
 public class HomeTest extends TestBase {
@@ -30,6 +30,7 @@ public class HomeTest extends TestBase {
 	public void setup(){
 		initialization();
 		 homePage = new HomePage();
+		 browseJobs = new BrowseJobs();
 		
 		 
 		
@@ -123,12 +124,19 @@ public class HomeTest extends TestBase {
 	
 	}
 	
+	@DataProvider
+	public Object[][] getTestData(){
+		Object data[][] = TestUtil.getTestData(sheetName);
+		return data;
+	}
 	
-	@Test(priority=8)
-	public void searchJobsSectorTest() {
+	
+	
+	@Test(priority=8,dataProvider="getTestData")
+	public void searchJobsSectorTest(String SearchData, String SectorName) {
 		try {
-			browseJobs= homePage.searchJobs("Director");
-			
+			browseJobs= homePage.searchJobs(SearchData);
+			Assert.assertTrue(browseJobs.verifySearchResult(SearchData));
 		log.info("clicked search");
 		}
 		catch (Exception e) {
@@ -138,15 +146,17 @@ public class HomeTest extends TestBase {
 	}
 	
 	
-	/*@DataProvider
-	public Object[][] getEconomistTestData(){
-		Object data[][] = TestUtil.getTestData(sheetName);
-		return data;
-	}*/
-	
-	@Test(priority=9)
-	public void validateBrowseJobsbySector() {
-		homePage.findJobsBySector("Director");
+	@Test(priority=9,dataProvider="getTestData")
+	public void validateBrowseJobsbySector(String SectorName,String SearchData) {
+		try {
+		browseJobs= homePage.findJobsBySector(SectorName);
+		Assert.assertTrue(browseJobs.verifySectorHeading(SectorName));
+		log.info("validated Browse job by selecting sector name");
+		}
+		catch (Exception e) {
+			log.error("Exception Occured in validateBrowseJobsbySector "+e.getMessage());
+			}
+		
 	}
 	
 	

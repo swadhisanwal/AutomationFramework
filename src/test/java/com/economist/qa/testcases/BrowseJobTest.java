@@ -3,11 +3,13 @@ package com.economist.qa.testcases;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import com.economist.qa.base.TestBase;
 import com.economist.qa.pages.BrowseJobs;
 import com.economist.qa.pages.HomePage;
+import com.economist.qa.util.TestUtil;
 
 
 public class BrowseJobTest extends TestBase {
@@ -26,7 +28,7 @@ public class BrowseJobTest extends TestBase {
 	public void setup(){
 		initialization();
 		homePage = new HomePage();
-		browseJobs= homePage.searchJobs("Director");	
+		browseJobs = new BrowseJobs();	
 	}
 
 
@@ -42,11 +44,17 @@ public class BrowseJobTest extends TestBase {
 			log.error("Exception Occured in validateSearchTest "+e.getMessage());
 		}
 	}
+	
+	@DataProvider
+	public Object[][] getTestData(){
+		Object data[][] = TestUtil.getTestData(sheetName);
+		return data;
+	}
 
-	@Test(priority=2)
+	@Test(priority=2,dataProvider="getTestData")
 
-	public void searchResultTest() {
-		browseJobs= homePage.searchJobs("Director");
+	public void searchResultTest(String SearchData, String SectorName) {
+		browseJobs= homePage.searchJobs(SearchData);
 	}
 
 	@AfterMethod

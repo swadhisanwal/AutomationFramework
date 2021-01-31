@@ -15,7 +15,7 @@ public class TestUtil extends TestBase{
 	public static long Page_load_timout= 30;
 	public static long Implicit_wait = 20;
 
-	public static String TESTDATA_SHEET_PATH = "C:\\TheEconomistTest\\src\\main\\java\\com\\economist\\qa\\testdata\\TheEconomistTestData.xlsx";
+	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")+"/src/main/java/com/economist/qa/testdata/TheEconomistTestData.xlsx";
 	static Workbook book;
 	static Sheet sheet;
 

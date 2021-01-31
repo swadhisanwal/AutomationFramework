@@ -184,6 +184,7 @@ public class HomePage extends TestBase {
 	 * @param sectorName
 	 * @return
 	 */
+	//to check 
 	public BrowseJobs findJobsBySector(String sectorName) {
 		//Storing the links in a list and traversing through the links
 		List<WebElement> links = jobsSector.findElements(By.tagName("a"));
@@ -194,6 +195,8 @@ public class HomePage extends TestBase {
 			if(ele.getText().contains(sectorName))
 			{
 				ele.click();
+				break;
+	
 			}
 		}
 		return new BrowseJobs();
